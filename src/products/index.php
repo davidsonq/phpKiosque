@@ -1,32 +1,27 @@
 <?php
-    require_once __DIR__ . '/../config/database.php';
-    require_once __DIR__ . '/../app/views/productHandler.php';
+    require_once __DIR__ . "/../app/views/productHandler.php";
+    $newProduct = array(
+        "description" => "TESTE" ,
+        "price" => 25.99,
+        "rating" => 1,
+        "title" => "Teste de drink" ,
+        "type" => "drink"
+    );
+    $table = array(
+        [
+            "_id" => 1,
+            "amount" => 5
+        ],
+        [
+            "_id" => 19,
+            "amount" => 5
+        ]
+    );
 
-    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-
-        header('Content-Type: application/json');
-
-        function sortByOrder($a, $b) {
-            return $a['_id'] - $b['_id'];
-        };
-
-        if(isset($_GET['id'])){ 
-            if(!getProductById($_GET["id"])){
-                echo json_encode((object) array());
-
-            }else{
-                echo json_encode(array_values(getProductById($_GET['id']))[0]);
-
-            }
-        }else{
-            $getType = isset($_GET["type"]) ? $_GET["type"] : "default";
-            
-            $listProducts = getProductByType($getType);
-
-            usort($listProducts, "sortByOrder");
-        
-            echo json_encode($listProducts);
-            
-        };
-    };
+    // echo var_dump(getProductById(43));
+    // echo var_dump(getProductByType("fruit"));
+    // echo var_dump(addProduct($newProduct));
+    // echo var_dump(calculateTab($table));
+    echo menuReport();
+    
 ?>
