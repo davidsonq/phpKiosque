@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^products/([0-9]+)/?$ src/products/index.php?id=$1 [L]
