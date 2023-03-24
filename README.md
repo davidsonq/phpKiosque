@@ -1,3 +1,3 @@
 # phpKiosque
 
-Projeto de manipulação de array associativos em PHP
+Projeto de manipulação de arrays associativos em PHP
